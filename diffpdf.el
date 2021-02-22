@@ -41,7 +41,7 @@
 (defcustom diffpdf-program (executable-find "diffpdf")
   "Program of diffpdf."
   :group 'diffpdf
-  :type (string :tag "Path to diffpdf"))
+  :type '(string :tag "Path to diffpdf"))
 
 (defcustom diffpdf-use-compile-p nil
   "If t, using compile to run the command."
