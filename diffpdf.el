@@ -30,6 +30,7 @@
 
 ;;; Code:
 (eval-when-compile (require 'subr-x))
+(require 'dired)
 (require 'compile)
 (require 'transient)
 
@@ -41,7 +42,7 @@
 (defcustom diffpdf-program (executable-find "diffpdf")
   "Program of diffpdf."
   :group 'diffpdf
-  :type (string :tag "Path to diffpdf"))
+  :type 'string)
 
 (defcustom diffpdf-use-compile-p nil
   "If t, using compile to run the command."
