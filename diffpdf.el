@@ -30,6 +30,7 @@
 
 ;;; Code:
 (eval-when-compile (require 'subr-x))
+(require 'dired)
 (require 'compile)
 (require 'transient)
 
