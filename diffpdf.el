@@ -42,7 +42,7 @@
 (defcustom diffpdf-program (executable-find "diffpdf")
   "Program of diffpdf."
   :group 'diffpdf
-  :type '(string :tag "Path to diffpdf"))
+  :type 'string)
 
 (defcustom diffpdf-use-compile-p nil
   "If t, using compile to run the command."
@@ -63,12 +63,12 @@
            (files (diffpdf--choose-files))
            (m (safe-length files))
            command)
+      (setq files (mapcar #'shell-quote-argument files))
       (setq command
-            (concat diffpdf-program " " arguments " \""
+            (concat diffpdf-program " " arguments " "
                     (if (> m 2)
-                        (string-join (nbutlast files (- m 2)) "\" \"")
-                      (string-join files "\" \""))
-                    "\""))
+                        (string-join (nbutlast files (- m 2)) " ")
+                      (string-join files " "))))
       (if diffpdf-use-compile-p
           (progn
             (setq compilation-read-command t)
@@ -85,12 +85,12 @@
            (files (dired-get-marked-files))
            (m (safe-length files))
            command)
+      (setq files (mapcar #'shell-quote-argument files))
       (setq command
-            (concat diffpdf-program " " arguments " \""
+            (concat diffpdf-program " " arguments " "
                     (if (> m 2)
-                        (string-join (nbutlast files (- m 2)) "\" \"")
-                      (string-join files "\" \""))
-                    "\""))
+                        (string-join (nbutlast files (- m 2)) " ")
+                      (string-join files " "))))
       (if diffpdf-use-compile-p
           (progn
             (setq compilation-read-command t)
@@ -120,7 +120,7 @@ Just for autoload."
 
 (defun diffpdf-arguments nil
   "Arguments function for transient."
-  (transient-args 'diffpdf))
+  (transient-args 'diffpdf-menu))
 
 
 (provide 'diffpdf)
