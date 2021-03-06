@@ -58,12 +58,14 @@
 (defun diffpdf--command (&optional args)
   "Invoke the compile mode with the run command and ARGS if provided."
   (interactive (list (diffpdf-arguments)))
+  (unless (and diffpdf-program (executable-find diffpdf-program))
+    (error "`diffpdf-program' is not defined or not in the PATH."))
   (save-excursion
     (let* ((arguments (string-join args " "))
            (files (diffpdf--choose-files))
            (m (safe-length files))
            command)
-      (setq files (mapcar #'shell-quote-argument files))
+      (when files (setq files (mapcar #'shell-quote-argument files)))
       (setq command
             (concat diffpdf-program " " arguments " "
                     (if (> m 2)
@@ -80,12 +82,14 @@
 (defun diffpdf-dired--command (&optional args)
   "Invoke the compile mode with the run command and ARGS if provided."
   (interactive (list (diffpdf-arguments)))
+  (unless (and diffpdf-program (executable-find diffpdf-program))
+    (error "`diffpdf-program' is not defined or not in the PATH."))
   (save-excursion
     (let* ((arguments (string-join args " "))
            (files (dired-get-marked-files))
            (m (safe-length files))
            command)
-      (setq files (mapcar #'shell-quote-argument files))
+      (when files (setq files (mapcar #'shell-quote-argument files)))
       (setq command
             (concat diffpdf-program " " arguments " "
                     (if (> m 2)
