@@ -59,7 +59,7 @@
   "Invoke the compile mode with the run command and ARGS if provided."
   (interactive (list (diffpdf-arguments)))
   (unless (and diffpdf-program (executable-find diffpdf-program))
-    (error "`diffpdf-program' is not defined or not in the PATH."))
+    (user-error "`diffpdf-program' is not defined or not in the PATH."))
   (save-excursion
     (let* ((arguments (string-join args " "))
            (files (diffpdf--choose-files))
@@ -83,7 +83,7 @@
   "Invoke the compile mode with the run command and ARGS if provided."
   (interactive (list (diffpdf-arguments)))
   (unless (and diffpdf-program (executable-find diffpdf-program))
-    (error "`diffpdf-program' is not defined or not in the PATH."))
+    (user-error "`diffpdf-program' is not defined or not in the PATH."))
   (save-excursion
     (let* ((arguments (string-join args " "))
            (files (dired-get-marked-files))
