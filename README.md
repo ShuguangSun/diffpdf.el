@@ -4,7 +4,7 @@ Transient UI for diffpdf.
 
 ## Installation
 
-Clone this repository (TODO:, or install from MELPA). Add the following to your `.emacs`:
+Clone this repository or install from MELPA. Add the following to your `.emacs`:
 
 ``` elisp
 (require 'diffpdf)
