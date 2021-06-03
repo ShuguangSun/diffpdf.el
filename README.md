@@ -1,5 +1,7 @@
 [![MELPA](https://melpa.org/packages/diffpdf-badge.svg)](https://melpa.org/#/diffpdf)
 [![MELPA Stable](https://stable.melpa.org/packages/diffpdf-badge.svg)](https://stable.melpa.org/#/diffpdf)
+[![Build Status](https://github.com/ShuguangSun/diffpdf.el/workflows/CI/badge.svg)](https://github.com/ShuguangSun/diffpdf.el/actions)
+[![License](http://img.shields.io/:license-gpl3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
 
 # diffpdf.el
 
