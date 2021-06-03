@@ -1,3 +1,6 @@
+[![MELPA](https://melpa.org/packages/diffpdf-badge.svg)](https://melpa.org/#/diffpdf)
+[![MELPA Stable](https://stable.melpa.org/packages/diffpdf-badge.svg)](https://stable.melpa.org/#/diffpdf)
+
 # diffpdf.el
 
 Transient UI for diffpdf.
